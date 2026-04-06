@@ -1,0 +1,72 @@
+<div class="flex-1 overflow-y-auto px-3 px-sm-6 py-8">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Page Header -->
+    <div class="mb-8">
+      <h2 class="font-headline text-2xl font-extrabold text-[#dae2fd] tracking-tight">{{ 'settings.title' | translate }}</h2>
+      <p class="text-[#c5c5d4] mt-1 text-sm">{{ 'settings.description' | translate }}</p>
+    </div>
+
+    <!-- API Config Card -->
+    <div class="bg-[#171f33] rounded-2xl p-4 p-sm-6 border border-[#454652]/20 space-y-5">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="w-9 h-9 rounded-xl bg-[#bac3ff]/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-[#bac3ff]">api</span>
+        </div>
+        <div>
+          <h3 class="font-semibold text-[#dae2fd]">{{ 'settings.apiConfig' | translate }}</h3>
+          <p class="text-xs text-[#8f909e]">{{ 'settings.apiConfigDesc' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <label class="text-xs font-medium text-[#c5c5d4] uppercase tracking-wider">{{ 'settings.apiUrl' | translate }}</label>
+        <input
+          id="apiUrl"
+          type="url"
+          [(ngModel)]="apiUrl"
+          [placeholder]="'settings.apiUrlPlaceholder' | translate"
+          class="w-full bg-[#0b1326] border border-[#454652]/40 rounded-xl px-4 py-3 text-sm text-[#dae2fd] placeholder:text-[#8f909e]/50 focus:outline-none focus:ring-2 focus:ring-[#bac3ff]/30 focus:border-transparent transition-all"
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label class="text-xs font-medium text-[#c5c5d4] uppercase tracking-wider">{{ 'settings.apiKey' | translate }}</label>
+        <input
+          id="apiKey"
+          type="password"
+          [(ngModel)]="apiKey"
+          [placeholder]="'settings.apiKeyPlaceholder' | translate"
+          class="w-full bg-[#0b1326] border border-[#454652]/40 rounded-xl px-4 py-3 text-sm text-[#dae2fd] placeholder:text-[#8f909e]/50 focus:outline-none focus:ring-2 focus:ring-[#bac3ff]/30 focus:border-transparent transition-all"
+        />
+      </div>
+
+      <div class="flex items-center gap-4 pt-2">
+        <button (click)="save()"
+          class="px-6 py-2.5 bg-gradient-to-r from-[#bac3ff] to-[#3f51b5] text-[#08218a] font-bold rounded-xl text-sm transition-all duration-200 cursor-pointer active:scale-95">
+          {{ 'settings.save' | translate }}
+        </button>
+        @if (saved) {
+          <span class="flex items-center gap-1.5 text-[#22c55e] text-sm">
+            <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            {{ 'settings.saved' | translate }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <!-- Connection Status Card -->
+    <div class="mt-4 bg-[#171f33] rounded-2xl p-5 border border-[#454652]/20">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-2 h-2 rounded-full" [style.background]="settings.isConfigured ? '#22c55e' : '#ffb4ab'"></div>
+          <span class="text-sm text-[#c5c5d4]">{{ 'settings.connectionStatus' | translate }}</span>
+        </div>
+        <span class="text-xs font-semibold" [style.color]="settings.isConfigured ? '#22c55e' : '#ffb4ab'">
+          {{ (settings.isConfigured ? 'settings.configured' : 'settings.notConfigured') | translate }}
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>

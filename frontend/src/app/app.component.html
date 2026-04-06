@@ -1,0 +1,143 @@
+<div class="container-fluid g-0 h-100">
+  <div class="row g-0 h-100">
+
+    <!-- Sidebar – visible on lg+, hidden on smaller -->
+    <aside class="col-lg-3 col-xl-2 d-none d-lg-flex sidebar-col">
+      <div class="sidebar">
+        <!-- Brand -->
+        <div class="px-2 mb-8 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#bac3ff] to-[#3f51b5] flex items-center justify-center text-[#08218a]">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+          </div>
+          <div>
+            <h1 class="font-headline font-bold text-[#bac3ff] text-sm tracking-tight">{{ 'app.brand' | translate }}</h1>
+            <p class="text-[10px] text-[#8f909e] uppercase tracking-widest">{{ 'app.subtitle' | translate }}</p>
+          </div>
+        </div>
+
+        <!-- New Chat Button -->
+        <button (click)="newChat()"
+          class="w-full flex items-center gap-3 p-3 bg-[#222a3d] text-[#bac3ff] rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer active:scale-95 hover:bg-[#2d3449]">
+          <span class="material-symbols-outlined text-xl">add_comment</span>
+          <span>{{ 'nav.newChat' | translate }}</span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="flex-1 mt-6 space-y-1">
+          <p class="px-3 py-2 text-[11px] font-bold text-[#8f909e] uppercase tracking-wider">{{ 'nav.navigation' | translate }}</p>
+          <a routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{exact: true}"
+            class="flex items-center gap-3 p-3 text-[#8e97aa] hover:text-[#bac3ff] hover:bg-[#222a3d] transition-all duration-300 cursor-pointer rounded-lg">
+            <span class="material-symbols-outlined text-xl">chat</span>
+            <span>{{ 'nav.chat' | translate }}</span>
+          </a>
+          <a routerLink="/settings" routerLinkActive="nav-active"
+            class="flex items-center gap-3 p-3 text-[#8e97aa] hover:text-[#bac3ff] hover:bg-[#222a3d] transition-all duration-300 cursor-pointer rounded-lg">
+            <span class="material-symbols-outlined text-xl">settings</span>
+            <span>{{ 'nav.settings' | translate }}</span>
+          </a>
+        </nav>
+
+        <!-- Language Selector -->
+        <div class="mt-auto pt-4 border-t border-[#454652]/20">
+          <p class="px-3 py-2 text-[11px] font-bold text-[#8f909e] uppercase tracking-wider">{{ 'language.label' | translate }}</p>
+          <select
+            [ngModel]="currentLang"
+            (ngModelChange)="changeLang($event)"
+            class="w-full bg-[#0b1326] border border-[#454652]/40 rounded-lg px-3 py-2 text-sm text-[#dae2fd] focus:outline-none focus:ring-2 focus:ring-[#bac3ff]/30">
+            @for (lang of languages; track lang) {
+              <option [value]="lang">{{ 'language.' + lang | translate }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile sidebar overlay -->
+    @if (sidebarOpen()) {
+      <div class="sidebar-overlay d-lg-none" (click)="toggleSidebar()"></div>
+      <aside class="sidebar-mobile d-lg-none">
+        <div class="sidebar">
+          <!-- Brand -->
+          <div class="px-2 mb-8 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#bac3ff] to-[#3f51b5] flex items-center justify-center text-[#08218a]">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+            </div>
+            <div>
+              <h1 class="font-headline font-bold text-[#bac3ff] text-sm tracking-tight">{{ 'app.brand' | translate }}</h1>
+              <p class="text-[10px] text-[#8f909e] uppercase tracking-widest">{{ 'app.subtitle' | translate }}</p>
+            </div>
+            <button (click)="toggleSidebar()" class="ml-auto p-2 text-[#8e97aa] hover:bg-[#222a3d] rounded-full cursor-pointer">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <!-- New Chat Button -->
+          <button (click)="newChat(); toggleSidebar()"
+            class="w-full flex items-center gap-3 p-3 bg-[#222a3d] text-[#bac3ff] rounded-lg font-semibold text-sm transition-all duration-300 cursor-pointer active:scale-95 hover:bg-[#2d3449]">
+            <span class="material-symbols-outlined text-xl">add_comment</span>
+            <span>{{ 'nav.newChat' | translate }}</span>
+          </button>
+
+          <!-- Navigation -->
+          <nav class="flex-1 mt-6 space-y-1">
+            <p class="px-3 py-2 text-[11px] font-bold text-[#8f909e] uppercase tracking-wider">{{ 'nav.navigation' | translate }}</p>
+            <a routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleSidebar()"
+              class="flex items-center gap-3 p-3 text-[#8e97aa] hover:text-[#bac3ff] hover:bg-[#222a3d] transition-all duration-300 cursor-pointer rounded-lg">
+              <span class="material-symbols-outlined text-xl">chat</span>
+              <span>{{ 'nav.chat' | translate }}</span>
+            </a>
+            <a routerLink="/settings" routerLinkActive="nav-active" (click)="toggleSidebar()"
+              class="flex items-center gap-3 p-3 text-[#8e97aa] hover:text-[#bac3ff] hover:bg-[#222a3d] transition-all duration-300 cursor-pointer rounded-lg">
+              <span class="material-symbols-outlined text-xl">settings</span>
+              <span>{{ 'nav.settings' | translate }}</span>
+            </a>
+          </nav>
+
+          <!-- Language Selector -->
+          <div class="mt-auto pt-4 border-t border-[#454652]/20">
+            <p class="px-3 py-2 text-[11px] font-bold text-[#8f909e] uppercase tracking-wider">{{ 'language.label' | translate }}</p>
+            <select
+              [ngModel]="currentLang"
+              (ngModelChange)="changeLang($event)"
+              class="w-full bg-[#0b1326] border border-[#454652]/40 rounded-lg px-3 py-2 text-sm text-[#dae2fd] focus:outline-none focus:ring-2 focus:ring-[#bac3ff]/30">
+              @for (lang of languages; track lang) {
+                <option [value]="lang">{{ 'language.' + lang | translate }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </aside>
+    }
+
+    <!-- Main Area -->
+    <main class="col-12 col-lg-9 col-xl-10 main-col">
+
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="flex items-center gap-4">
+          <!-- Mobile hamburger -->
+          <button (click)="toggleSidebar()" class="d-lg-none p-2 text-[#8e97aa] hover:bg-[#222a3d] rounded-full transition-colors duration-200 cursor-pointer active:scale-95">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <span class="text-xl font-extrabold text-[#bac3ff] font-headline tracking-tight">{{ 'app.title' | translate }}</span>
+          <div class="h-4 w-px bg-[#2d3449] d-none d-sm-block"></div>
+          <span class="text-sm font-semibold text-[#bac3ff] border-b-2 border-[#bac3ff] pb-0.5 d-none d-sm-inline">{{ currentSectionKey | translate }}</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <!-- Compact language selector in header for mobile -->
+          <select
+            [ngModel]="currentLang"
+            (ngModelChange)="changeLang($event)"
+            class="d-lg-none bg-[#222a3d] border border-[#454652]/40 rounded-lg px-2 py-1.5 text-xs text-[#dae2fd] focus:outline-none">
+            @for (lang of languages; track lang) {
+              <option [value]="lang">{{ lang | uppercase }}</option>
+            }
+          </select>
+        </div>
+      </header>
+
+      <!-- Routed Content -->
+      <router-outlet />
+    </main>
+  </div>
+</div>

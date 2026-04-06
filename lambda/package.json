@@ -1,0 +1,9 @@
+{
+  "name": "bedrock-stream",
+  "version": "1.0.0",
+  "description": "Bedrock ConverseStream Lambda – streaming response",
+  "main": "index.js",
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.0.0"
+  }
+}

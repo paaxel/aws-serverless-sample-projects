@@ -1,0 +1,48 @@
+{
+  "app": {
+    "title": "Bedrock Chatbot",
+    "brand": "Bedrock Chatbot",
+    "subtitle": "AWS Bedrock"
+  },
+  "nav": {
+    "newChat": "Nuova chat",
+    "navigation": "Navigazione",
+    "chat": "Chat",
+    "settings": "Impostazioni"
+  },
+  "chat": {
+    "welcome": "Ciao!",
+    "welcomeMessage": "Come posso aiutarti oggi?",
+    "configureLink": "Configura le impostazioni API →",
+    "you": "Tu",
+    "assistant": "Bedrock Chatbot",
+    "thinking": "Pensando...",
+    "noApiKey": "Nessuna chiave API configurata.",
+    "goToSettings": "Vai alle Impostazioni →",
+    "placeholder": "Scrivi un messaggio a Bedrock Chatbot...",
+    "bedrock": "AWS Bedrock",
+    "streamingActive": "Streaming attivo"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "description": "Configura la connessione del tuo assistente IA.",
+    "apiConfig": "Configurazione API",
+    "apiConfigDesc": "Connettiti al tuo endpoint di streaming AWS",
+    "apiUrl": "URL API",
+    "apiKey": "Chiave API",
+    "apiUrlPlaceholder": "https://...execute-api...amazonaws.com/prod/stream",
+    "apiKeyPlaceholder": "Inserisci la tua x-api-key",
+    "save": "Salva impostazioni",
+    "saved": "Salvato con successo",
+    "connectionStatus": "Stato della connessione",
+    "configured": "Configurato",
+    "notConfigured": "Non configurato"
+  },
+  "language": {
+    "label": "Lingua",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

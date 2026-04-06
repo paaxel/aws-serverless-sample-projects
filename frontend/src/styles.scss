@@ -1,0 +1,69 @@
+// ─── Color Palette ───────────────────────────────────────────
+$color-bg-primary:      #0b1326;
+$color-bg-sidebar:      #171f33;
+$color-bg-card:         #222a3d;
+$color-bg-card-hover:   #2d3449;
+$color-bg-input:        rgba(45, 52, 73, 0.4);
+
+$color-accent:          #3f51b5;
+$color-accent-light:    #bac3ff;
+$color-accent-dark:     #08218a;
+
+$color-text-primary:    #dae2fd;
+$color-text-secondary:  #c5c5d4;
+$color-text-muted:      #8f909e;
+$color-text-nav:        #8e97aa;
+$color-text-user-msg:   #cacfff;
+
+$color-border:          #454652;
+$color-divider:         #2d3449;
+$color-scrollbar:       #31394d;
+
+$color-success:         #22c55e;
+$color-error-bg:        #93000a;
+$color-error-text:      #ffb4ab;
+$color-warning-bg:      #8f4700;
+$color-warning-text:    #ffb784;
+
+// ─── CSS Custom Properties ───────────────────────────────────
+:root {
+  --color-bg-primary:      #{$color-bg-primary};
+  --color-bg-sidebar:      #{$color-bg-sidebar};
+  --color-bg-card:         #{$color-bg-card};
+  --color-bg-card-hover:   #{$color-bg-card-hover};
+  --color-bg-input:        #{$color-bg-input};
+
+  --color-accent:          #{$color-accent};
+  --color-accent-light:    #{$color-accent-light};
+  --color-accent-dark:     #{$color-accent-dark};
+
+  --color-text-primary:    #{$color-text-primary};
+  --color-text-secondary:  #{$color-text-secondary};
+  --color-text-muted:      #{$color-text-muted};
+  --color-text-nav:        #{$color-text-nav};
+  --color-text-user-msg:   #{$color-text-user-msg};
+
+  --color-border:          #{$color-border};
+  --color-divider:         #{$color-divider};
+  --color-scrollbar:       #{$color-scrollbar};
+
+  --color-success:         #{$color-success};
+  --color-error-bg:        #{$color-error-bg};
+  --color-error-text:      #{$color-error-text};
+  --color-warning-bg:      #{$color-warning-bg};
+  --color-warning-text:    #{$color-warning-text};
+}
+
+// ─── Global Resets ───────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: $color-bg-primary;
+  color: $color-text-primary;
+  height: 100vh;
+  overflow: hidden;
+}
+
+a { color: $color-accent-light; text-decoration: none; }
+a:hover { text-decoration: underline; }

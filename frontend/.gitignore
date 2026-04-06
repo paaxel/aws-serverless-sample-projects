@@ -1,0 +1,64 @@
+# Node dependencies
+node_modules/
+
+# Build output
+/dist/
+/dist-*/
+/tmp/
+/out-tsc/
+
+# Angular build and cache
+/.angular/
+/.angular/cache/
+
+# Compiled artifacts
+*.class
+*.war
+*.ear
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+
+# IDEs and editors
+/.idea/
+/.vscode/
+*.sublime-workspace
+*.sublime-project
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+/coverage/
+
+# Test output
+/karma-coverage/
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Optional npm cache directory
+.npm/
+
+# Mac system files
+.Spotlight-V100
+.Trashes
+
+# JetBrains
+*.iml
+
+# TypeScript
+*.tsbuildinfo
+
+# Angular CLI environment files (local overrides)
+/src/environments/*.local.ts
